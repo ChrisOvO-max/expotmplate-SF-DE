@@ -1,0 +1,32 @@
+name: Build Android APK
+on:
+  push:
+    branches: [main]  # 代码推送到main分支时触发构建
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用云端Ubuntu环境
+    steps:
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+      
+      - name: 配置Node.js环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20  # 与本地Node版本一致
+          cache: 'npm'  # 缓存依赖，加速构建
+      
+      - name: 安装项目依赖
+        run: npm install
+      
+      - name: 配置Expo/EAS环境
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}  # 引用后续配置的Secret
+      
+      - name: 执行Android构建
+        run: eas build --platform android --profile preview --non-interactive
+        env:
+          EAS_NO_VCS: 1
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
