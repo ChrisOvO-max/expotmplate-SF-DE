@@ -14,7 +14,10 @@ jobs:
         with:
           node-version: 20  # 与本地Node版本一致
           cache: 'npm'  # 缓存依赖，加速构建
-      
+
+      - name: 赋予脚本执行权限
+        run: chmod +x node_modules/.bin/* || true
+        
       - name: 安装项目依赖
         run: npm install
       
