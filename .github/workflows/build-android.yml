@@ -1,7 +1,7 @@
 name: Build Android APK
 on:
   push:
-    branches: [main]  # 代码推送到main分支时触发构建
+    branches: [master]  # 代码推送到master分支时触发构建
 jobs:
   build:
     runs-on: ubuntu-latest  # 使用云端Ubuntu环境
