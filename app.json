@@ -1,5 +1,10 @@
 {
   "expo": {
+    "extra":{
+      "eas":{
+        "projectID":"953d211d"
+      }
+    }
     "name": "SF-DE",
     "slug": "Project 627452535554",
     "version": "1.0.0",
