@@ -2,17 +2,20 @@
   "expo": {
     "extra": {
       "eas": {
-        "projectId": "4ade83f8-e46b-466e-a0f6-36f938f05ccb"  // 修正字段名：projectId（小写d）
+        "projectId": "4ade83f8-e46b-466e-a0f6-36f938f05ccb"
       }
-    },  // 补充缺失的逗号
+    },
     "name": "SF-DE",
-    "slug": "Project 627452535554",
+    "slug": "sf-de",  // 改为与EAS项目一致的slug（小写无空格）
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon_downloaded.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "cli": {
+      "appVersionSource": "remote"  // 补充cli配置，消除版本源警告
+    },
     "ios": {
       "supportsTablet": true
     },
