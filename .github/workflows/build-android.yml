@@ -28,11 +28,6 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
       
-      - name: 初始化EAS项目（关联云端）
-        run: eas init --id 953d211d --non-interactive
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-      
       - name: 执行Android构建
         run: eas build --platform android --profile preview --non-interactive
         env:
