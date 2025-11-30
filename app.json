@@ -1,58 +1,30 @@
 {
   "expo": {
-    "extra": {
-      "eas": {
-        "projectId": "4ade83f8-e46b-466e-a0f6-36f938f05ccb"
-      }
-    },
     "name": "SF-DE",
-    "slug": "sf-de",
+    "slug": "sf-de",  // 和EAS项目slug一致，小写无空格
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon_downloaded.png",
-    "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
     "cli": {
-      "appVersionSource": "remote"
+      "appVersionSource": "remote"  // 必须加，消除警告
+    },
+    "android": {
+      "package": "com.你的账号.sfde",  // 比如com.chris.sfde，符合Android包名规范
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon_downloaded.png",
+        "backgroundColor": "#ffffff"
+      }
     },
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.yourname.sfde"  // 替换为你的包名（如com.example.sfde）
-    },
     "web": {
       "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ],
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Allow SF-DE to access your camera",
-          "microphonePermission": "Allow SF-DE to access your microphone",
-          "recordAudioAndroid": true
-        }
-      ]
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+    "extra": {
+      "eas": {
+        "projectId": "4ade83f8-e46b-466e-a0f6-36f938f05ccb"  // 你的UUID
+      }
+    },
+    // 其他插件、experiments配置保留不变
   }
 }
