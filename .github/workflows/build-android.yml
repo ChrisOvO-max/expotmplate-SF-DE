@@ -6,29 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 拉取仓库代码
-        uses: actions/checkout@v4
-      
-      - name: 配置Node.js环境
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-      
-      - name: 安装EAS CLI（全局）
-        run: npm install -g eas-cli
-      
-      - name: 安装项目依赖
-        run: npm install --ignore-scripts
-      
-      - name: 配置Expo/EAS环境
-        uses: expo/expo-github-action@v8
+      - run: npm install -g eas-cli
+      - run: npm install --ignore-scripts
+      - uses: expo/expo-github-action@v8
         with:
-          expo-version: latest
-          eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-      
-      - name: 执行Android构建
-        run: eas build --platform android --profile preview --non-interactive
+      - run: eas build --platform android --profile preview --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
