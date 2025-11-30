@@ -2,7 +2,7 @@
   "expo": {
     "extra": {
       "eas": {
-        "projectId": "953d211d"  // 修正字段名：projectId（小写d）
+        "projectId": "4ade83f8-e46b-466e-a0f6-36f938f05ccb"  // 修正字段名：projectId（小写d）
       }
     },  // 补充缺失的逗号
     "name": "SF-DE",
