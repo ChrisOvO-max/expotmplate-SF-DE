@@ -6,7 +6,7 @@
       }
     },
     "name": "SF-DE",
-    "slug": "sf-de",  // 改为与EAS项目一致的slug（小写无空格）
+    "slug": "sf-de",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon_downloaded.png",
@@ -14,7 +14,7 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "cli": {
-      "appVersionSource": "remote"  // 补充cli配置，消除版本源警告
+      "appVersionSource": "remote"
     },
     "ios": {
       "supportsTablet": true
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.yourname.sfde"  // 替换为你的包名（如com.example.sfde）
     },
     "web": {
       "bundler": "metro",
