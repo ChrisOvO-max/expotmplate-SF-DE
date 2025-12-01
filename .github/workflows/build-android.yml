@@ -7,15 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm install -g eas-cli
-      - run: npm install --ignore-scripts
-      - uses: expo/expo-github-action@v8
+
+      - name: Install Dependencies
+        run: |
+          npm install -g eas-cli
+          npm install  # 建议移除 --ignore-scripts，否则可能导致依赖未正确构建
+
+      - name: Login to Expo & Build APK
+        uses: expo/expo-github-action@v8
         with:
+          expo-version: latest
+          eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
-      - run: eas build --platform android --profile preview --non-interactive
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          commandLine: eas build --platform android --profile preview --non-interactive
